@@ -1,0 +1,180 @@
+@import "_reset.scss";
+@import "_variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&family=Playfair+Display:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+  color: #222226;
+  font-family: Open Sans;
+  font-weight: 300;
+  width: 100vw;
+  height: 100vh;
+}
+h1 {
+  font-size: 48px;
+  font-family: Playfair Display;
+  font-weight: 600;
+  line-height: 3.5rem;
+  margin-bottom: 2.5rem;
+}
+h4 {
+  font-size: 24px;
+  font-family: Playfair Display;
+  font-weight: 400;
+  line-height: 2rem;
+  margin-bottom: 2.5rem;
+}
+p {
+  font-weight: 400;
+}
+
+a {
+  color: $orange;
+}
+nav {
+  position: fixed;
+  width: 100%;
+  height: 2.5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0px 20px;
+  background-color: white;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+
+  ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    li {
+      margin: 0px 5px;
+    }
+  }
+  div:first-child {
+    text-align: start;
+    width: 40%;
+    font-weight: 500;
+  }
+
+  .logo {
+    text-align: center;
+    font-family: Dosis;
+    font-size: 1.8rem;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    p {
+      transform: rotateZ(-20deg);
+      margin-left: -6px;
+      margin-right: 1px;
+    }
+  }
+
+  div:last-child {
+    text-align: end;
+    width: 40%;
+    padding-right: 10px;
+    font-size: 1.2rem;
+  }
+}
+.interior {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 100%;
+
+  .interior-images {
+    overflow: scroll;
+    img {
+      width: 100%;
+      height: auto;
+      margin-top: -2px;
+    }
+  }
+  .interior-images::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
+  .interior-explane {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 4rem;
+    text-align: center;
+  }
+}
+.timeforliving {
+  width: 100%;
+  height: 50vh;
+  background-color: #eecb55;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 10rem;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 25vh);
+  gap: 1px;
+  .gallery-block {
+    position: relative;
+    &:first-child,
+    &:nth-child(5),
+    &:nth-child(7),
+    &:nth-child(10) {
+      grid-column-start: span 2;
+    }
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      .gallery-image img {
+        opacity: 0.2;
+        filter: blur(20px);
+
+        // -webkit-filter: blur(30px);
+      }
+      .gallery-guid {
+        display: flex;
+      }
+    }
+    .gallery-guid {
+      display: none;
+      width: 100%;
+      height: 100%;
+      padding: 0 30%;
+
+      // display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      transition: all 0.3s ease-in-out;
+      h5 {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+      p {
+        font-weight: 300;
+        margin-bottom: 0.5rem;
+      }
+    }
+    .gallery-image img {
+      position: absolute;
+      z-index: -10;
+      top: 0;
+      width: 100%;
+      height: 100%;
+
+      // background-image: url("https://source.unsplash.com/random/?furniture");
+      // background-size: cover;
+      // background-position: center;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}
